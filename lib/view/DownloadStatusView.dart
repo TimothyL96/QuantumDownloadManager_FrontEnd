@@ -39,10 +39,11 @@ class _GetDownloadStatusState extends State<GetDownloadStatus> {
               mainAxisSize: MainAxisSize.max,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Flexible(
+                SizedBox(
                   child: StaticDrawer(
                     pageController: this.pageController,
                   ),
+                  width: 200,
                 ),
                 Expanded(
                   child: PageView(
@@ -69,6 +70,7 @@ class _GetDownloadStatusState extends State<GetDownloadStatus> {
                       //     )),
                       TestContent(),
                       TestContent1(),
+                      TestContent2(),
                     ],
                     controller: pageController,
                   ),
@@ -154,13 +156,29 @@ class StaticDrawer extends StatelessWidget {
 class TestContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Text("Content test!");
+    return Scaffold(
+      backgroundColor: Colors.green,
+      body: Text("Content test!"),
+    );
   }
 }
 
 class TestContent1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Text("Content test 1!");
+    return Scaffold(
+      backgroundColor: Colors.red,
+      body: Text("Content test! 11"),
+    );
+  }
+}
+
+class TestContent2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.yellowAccent,
+      body: Text("Content test! 2"),
+    );
   }
 }
