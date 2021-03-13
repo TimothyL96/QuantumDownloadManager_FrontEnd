@@ -10,7 +10,7 @@ class GetDownloadStatus extends StatefulWidget {
 }
 
 class _GetDownloadStatusState extends State<GetDownloadStatus> {
-  DownloadStatusBloc _bloc;
+  late DownloadStatusBloc _bloc;
   PageController pageController =
       PageController(initialPage: 0, viewportFraction: 1);
 
@@ -91,18 +91,18 @@ class _GetDownloadStatusState extends State<GetDownloadStatus> {
 }
 
 class DownloadStatusText extends StatelessWidget {
-  final DownloadStatus downloadStatus;
+  final DownloadStatus? downloadStatus;
 
-  const DownloadStatusText({Key key, this.downloadStatus}) : super(key: key);
+  const DownloadStatusText({Key? key, this.downloadStatus}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       backgroundColor: Color(0xFF202020),
       body: Text(
-        downloadStatus.status.toString() +
+        downloadStatus!.status.toString() +
             " : " +
-            downloadStatus.percentage.toString(),
+            downloadStatus!.percentage.toString(),
         style: TextStyle(color: Colors.yellow),
       ),
     );
@@ -110,9 +110,9 @@ class DownloadStatusText extends StatelessWidget {
 }
 
 class StaticDrawer extends StatelessWidget {
-  final PageController pageController;
+  final PageController? pageController;
 
-  const StaticDrawer({Key key, this.pageController}) : super(key: key);
+  const StaticDrawer({Key? key, this.pageController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +121,7 @@ class StaticDrawer extends StatelessWidget {
         ListTile(
           title: Text("Home"),
           dense: true,
-          onTap: () => pageController.animateToPage(
+          onTap: () => pageController!.animateToPage(
             0,
             duration: Duration(seconds: 1),
             curve: Curves.slowMiddle,
@@ -130,7 +130,7 @@ class StaticDrawer extends StatelessWidget {
         ListTile(
           title: Text("Downloads"),
           dense: true,
-          onTap: () => pageController.animateToPage(
+          onTap: () => pageController!.animateToPage(
             1,
             duration: Duration(seconds: 1),
             curve: Curves.easeInCirc,

@@ -6,14 +6,14 @@ import 'package:QDM_flutter/repository/DownloadStatusRepository.dart';
 import 'package:flutter/cupertino.dart';
 
 class DownloadStatusBloc {
-  DownloadStatusRepository _downloadStatusRepository;
-  StreamController _downloadStatusController;
+  late DownloadStatusRepository _downloadStatusRepository;
+  late StreamController _downloadStatusController;
 
   StreamSink<Response<DownloadStatus>> get downloadStatusSink =>
-      _downloadStatusController.sink;
+      _downloadStatusController.sink as StreamSink<Response<DownloadStatus>>;
 
   Stream<Response<DownloadStatus>> get downloadStatusStream =>
-      _downloadStatusController.stream;
+      _downloadStatusController.stream as Stream<Response<DownloadStatus>>;
 
   DownloadStatusBloc() {
     _downloadStatusController = StreamController<Response<DownloadStatus>>();

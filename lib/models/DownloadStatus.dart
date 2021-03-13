@@ -2,7 +2,7 @@ import 'package:QDM_flutter/networking/Response.dart';
 
 class DownloadStatus {
   final Status status;
-  final double percentage;
+  final double? percentage;
 
   DownloadStatus(this.status, this.percentage);
 
